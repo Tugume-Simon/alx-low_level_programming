@@ -7,5 +7,6 @@
  */
 int main(void)
 {
+	printf("Intel");
 	return (0);
 }
