@@ -10,13 +10,9 @@ int main(void)
 
 	while (j < 10)
 	{
-		if (j == 9)
+		putchar(48 + j);
+		if (j != 9)
 		{
-			putchar(48 + j);
-		}
-		else
-		{
-			putchar(48 + j);
 			putchar(44);
 			putchar(' ');
 		}
