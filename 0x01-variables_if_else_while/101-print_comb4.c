@@ -17,8 +17,11 @@ int main(void)
 				putchar(48 + i);
 				putchar(48 + n);
 				putchar(48 + z);
-				putchar(44);
-				putchar(' ');
+				if (!(i == 7 && n == 8 && z == 9))
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
