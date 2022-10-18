@@ -17,8 +17,8 @@ void printstr(char *str)
 
 	for (i = 0; i < l; i++)
 	{
-         	_putchar(str[i]);
+         	putchar(str[i]);
 	}
-        _putchar('\n');
+        putchar('\n');
 }
 
