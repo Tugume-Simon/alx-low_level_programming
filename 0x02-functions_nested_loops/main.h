@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
-#include "1-alphabet.c"
+#include "_putchar.c"
 /**                                                                                                                                                   
  * printstr - function                                                                                                                                
  * @str: string                                                                                                                                       
  *                                                                                                                                                    
  * Description: user defined function for printing a string                                                                                           
  */
-void print_alphabet(void);
 
 void printstr(char *str)
 {
@@ -19,4 +18,15 @@ void printstr(char *str)
          	putchar(str[i]);
 	}
         putchar('\n');
+}
+
+void print_alphabet(void)
+{
+	int i;
+
+        for (i = 97; i < 123; i++)
+        {
+                _putchar(i);
+        }
+        _putchar('\n');	
 }
