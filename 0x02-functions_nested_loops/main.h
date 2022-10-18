@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include "1-alphabet.c"
-
 /**                                                                                                                                                   
  * printstr - function                                                                                                                                
  * @str: string                                                                                                                                       
  *                                                                                                                                                    
  * Description: user defined function for printing a string                                                                                           
  */
-int _putchar(char c);
-void print_alphabet();
+void print_alphabet(void);
 
 void printstr(char *str)
 {
