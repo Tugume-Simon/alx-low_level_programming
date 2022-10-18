@@ -1,8 +1,11 @@
+#include "_putchar.c"
 /**
  * print_alphabet - print all lowercase alphabets
  *
  * Return: Always 0 (success)
  */
+int _putchar(char c);
+
 void print_alphabet(void)
 {
 	int i;

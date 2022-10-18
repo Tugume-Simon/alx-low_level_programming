@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "_putchar.c"
 #include "1-alphabet.c"
 
 /**                                                                                                                                                   
@@ -9,7 +8,6 @@
  *                                                                                                                                                    
  * Description: user defined function for printing a string                                                                                           
  */
-int _putchar(char c);
 void print_alphabet();
 
 void printstr(char *str)
