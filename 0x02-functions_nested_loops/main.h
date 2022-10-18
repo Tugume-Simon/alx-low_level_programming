@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "_putchar.c"
 /**                                                                                                                                                   
  * printstr - function                                                                                                                                
  * @str: string                                                                                                                                       
@@ -7,7 +8,7 @@
  * Description: user defined function for printing a string                                                                                           
  */
 
-/* int _putchar(char c); */
+int _putchar(char c);
 
 void printstr(char *str)
 {
@@ -21,3 +22,7 @@ void printstr(char *str)
         putchar('\n');
 }
 
+void print_alphabet(void)
+{
+	_putchar('a');
+}
