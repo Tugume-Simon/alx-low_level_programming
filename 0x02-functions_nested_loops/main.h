@@ -7,6 +7,7 @@
  *                                                                                                                                                    
  * Description: user defined function for printing a string                                                                                           
  */
+int _putchar(char c);
 
 void printstr(char *str)
 {
