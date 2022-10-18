@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-#include "_putchar.c"
+#include <unistd.h>
 /**                                                                                                                                                   
  * printstr - function                                                                                                                                
  * @str: string                                                                                                                                       
  *                                                                                                                                                    
  * Description: user defined function for printing a string                                                                                           
  */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 void printstr(char *str)
 {
