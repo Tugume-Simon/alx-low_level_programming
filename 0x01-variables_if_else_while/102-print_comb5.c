@@ -6,30 +6,34 @@
  */
 int main(void)
 {
-	int i, x, z, d;
-	
-	for (i = 0; i < 10; i++)
-	{
-		for (x = 0; x < 10; x++)
+	int i = 0;
+	int z = 0;
+	int y = 0;
+	int x = 0;
+
+	do {
+		while (z < 10)
 		{
-			for (z = 0; z < 10; z++)
+			while (x < 10)
 			{
-				for (d = 0; d < 10; d++)
+				while (y < 10)
 				{
-					if(!((i == x ) && (x == d) && (d == z)))
-					{
-						putchar(48 + i);
-						putchar(48 + x);
-						putchar(' ');
-						putchar(48 + z);
-						putchar(48 + d);
-						putchar(44);
-						putchar(' ');
-					}
+					putchar(48 + i);
+					putchar(48 + z);
+					putchar(' ');
+					putchar(48 + x);
+					putchar(48 + y);
+					putchar(',');
+					putchar(' '); 
+					y++;
 				}
-			}
+				x++;
+			}	
+			z++;
 		}
-	}
+		i++;
+	} while (i < 10);
+
 	putchar('\n');
 
 	return (0);
