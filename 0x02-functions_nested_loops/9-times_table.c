@@ -6,15 +6,19 @@
  */
 void times_table(void)
 {
-	int i, x;
+	int i, x, product;
 
 	for (i = 0; i < 10; i++)
 	{
 		for (x = 0; x < 10; x++)
 		{
-			_putchar(x);
+			product = x * i;
+			_putchar(product + '0');
 			if (x != 9)
+			{
 				_putchar(' ');
+				_putchar(',');
+			}
 		}
 		_putchar('\n');
 	}
