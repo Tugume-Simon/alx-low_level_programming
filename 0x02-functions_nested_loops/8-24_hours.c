@@ -20,12 +20,15 @@ void jack_bauer(void)
 					{
 						break;
 					}
-					_putchar(i + '0');
-					_putchar(n + '0');
-					_putchar(' ');
-					_putchar(k + '0');
-					_putchar(l + '0');
-					_putchar('\n');
+					else
+					{
+						_putchar(i + '0');
+						_putchar(n + '0');
+						_putchar(' ');
+						_putchar(k + '0');
+						_putchar(l + '0');
+						_putchar('\n');
+					}
 				}
 			}
 		}
