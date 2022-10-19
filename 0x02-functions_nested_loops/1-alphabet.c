@@ -3,7 +3,7 @@
  * print_alphabet - print all lowercase alphabets
  *
  */
-void print_alphabet()
+void print_alphabet(void)
 {
 	int i;
 	
