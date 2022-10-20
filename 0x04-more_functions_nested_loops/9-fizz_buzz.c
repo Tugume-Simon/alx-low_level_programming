@@ -14,7 +14,7 @@ int main(void)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
 			fprintf(stdout, "FizzBuzz");
-		if (i % 3 == 0)
+		else if (i % 3 == 0)
 			fprintf(stdout, "Fizz");
 		else if (i % 5 == 0)
 			fprintf(stdout, "Buzz");
