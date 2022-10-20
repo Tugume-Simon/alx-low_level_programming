@@ -27,8 +27,9 @@ void print_to_98(int n)
 		{
 			fprintf(stdout, "%d", i);
 
-			if(i != 98)
+			if (i != 98)
 				fprintf(stdout, "%s", ", ");
 		}
 	}
+	fprintf(stdout, "%s", "\n");
 }
