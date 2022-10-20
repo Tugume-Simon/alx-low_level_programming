@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -12,6 +12,8 @@ int main(void)
 
 	for (i = 1; i <= 100; i++)
 	{
+		if (i % 3 == 0 && i % 5 == 0)
+			fprintf(stdout, "FizzBuzz ");
 		if (i % 3 == 0)
 			fprintf(stdout, "Fizz ");
 		else if (i % 5 == 0)
