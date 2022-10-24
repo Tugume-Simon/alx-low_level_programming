@@ -9,7 +9,7 @@
 
 void puts_half(char *str)
 {
-	int n = 1;
+	int n = 0;
 	int i = 0;
 	int start;
 
@@ -21,7 +21,7 @@ void puts_half(char *str)
 
 	if (n % 2 != 0)
 	{
-		start = (n - 1) / 2;
+		start = 1 + (n - 1) / 2;
 	}
 	else
 	{
