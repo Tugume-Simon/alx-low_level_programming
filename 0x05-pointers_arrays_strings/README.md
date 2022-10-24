@@ -1,2 +1,2 @@
-# C - Programming
-<br/>Pointers, arrays and strings
+# C - Programming<br/>
+Pointers, arrays and strings
