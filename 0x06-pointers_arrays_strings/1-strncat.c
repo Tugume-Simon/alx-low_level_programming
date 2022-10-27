@@ -23,10 +23,10 @@ char *_strncat(char *dest, char *src, int n)
 
 	while (i < n)
 	{
-		if (!*src)
-			break;
-		else
+		if (*src)
 			*(dest + i) = *src;
+		else
+			break;
 		src++;
 		i++;
 	}
