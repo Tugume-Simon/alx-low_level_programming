@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _strcat - appends source string to destination string overwriting null character
- * @dest - destination string
- * @src - source string
+ * _strcat - appends source string to destination string overwriting
+ * the null character
+ * @dest: destination string
+ * @src: source string
  *
  * Return: concatenated string
  */
@@ -24,5 +25,5 @@ char *_strcat(char *dest, char *src)
 		i++;
 	}
 
-	return dest;
+	return (dest);
 }
