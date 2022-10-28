@@ -12,7 +12,7 @@ char *cap_string(char *s)
 	int i = 0;
 	int j;
 	char seperators[] = {',', '\t', '\n', ';', '.', ' ',
-		'(', ')', '{', '}', '!', '?', '"'};
+		'(', ')', '{', '}', '!', '?', '\"'};
 	int sep_len = sizeof(seperators);
 
 	while (s[i] != '\0')
