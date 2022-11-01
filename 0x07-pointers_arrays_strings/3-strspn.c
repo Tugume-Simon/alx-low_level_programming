@@ -12,6 +12,7 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i;
 	unsigned int c;
+	int flag = 0;
 
 	i = 0;
 	c = 0;
@@ -27,11 +28,15 @@ unsigned int _strspn(char *s, char *accept)
 					{
 						c = i + 1;
 					}
+					flag = 1;
 					accept++;
 					break;
 				}
 				i++;
 			}
+
+			if (flag == 0)
+				break;
 			i = 0;
 		}
 	}
