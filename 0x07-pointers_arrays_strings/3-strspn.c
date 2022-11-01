@@ -34,7 +34,7 @@ unsigned int _strspn(char *s, char *accept)
 
 	i = 0;
 	c = 0;
-	if (*s != '\0' && (_strlen(s) > _strlen(accept)))
+	if (*s != '\0' && (_strlen(s) >= _strlen(accept)))
 	{
 		while (*accept != '\0')
 		{
@@ -43,7 +43,7 @@ unsigned int _strspn(char *s, char *accept)
 			{
 				if (s[i] == *accept)
 				{
-					if (i > c)
+					if (i >= c)
 					{
 						c = i + 1;
 					}
