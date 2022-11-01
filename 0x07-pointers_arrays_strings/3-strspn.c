@@ -1,6 +1,24 @@
 #include "main.h"
 
 /**
+ * _strlen - counts the characters in a string
+ * @str: string
+ *
+ * Return: integer -- length of string
+ */
+int _strlen(char *str)
+{
+	int n;
+
+	n = 0;
+	while (str[n] != '\0')
+	{
+		n++;
+	}
+	return (n);
+}
+
+/**
  * _strspn - counts characters of string segment where
  * where the match of provided sub-string is found
  * @s: string
@@ -12,15 +30,16 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i;
 	unsigned int c;
-	int flag = 0;
+	int flag;
 
 	i = 0;
 	c = 0;
-	if (*s != '\0')
+	if (*s != '\0' && (_strlen(s) > _strlen(accept)))
 	{
 		while (*accept != '\0')
 		{
-			while (s[i])
+			flag = 0;
+			while (s[i] != '\0')
 			{
 				if (s[i] == *accept)
 				{
@@ -28,7 +47,8 @@ unsigned int _strspn(char *s, char *accept)
 					{
 						c = i + 1;
 					}
-					flag = 1;
+					if (s[c] != '\0')
+						flag = 1;
 					accept++;
 					break;
 				}
@@ -36,7 +56,10 @@ unsigned int _strspn(char *s, char *accept)
 			}
 
 			if (flag == 0)
+			{
 				break;
+				c = 0;
+			}
 			i = 0;
 		}
 	}
