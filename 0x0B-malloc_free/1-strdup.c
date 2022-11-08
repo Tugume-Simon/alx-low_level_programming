@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _strdup - reserves memory to a given string
@@ -15,7 +16,7 @@ char *_strdup(char *str)
 	int s;
 	char *g;
 
-	i = 1;
+	i = 0;
 	if (str == NULL)
 	{
 		return (NULL);
@@ -24,6 +25,8 @@ char *_strdup(char *str)
 	{
 		i++;
 	}
+	i++;
+	printf("%d\n", i);
 
 	g = (char *)malloc(sizeof(char) * i);
 	if (g == NULL)
