@@ -12,33 +12,29 @@
  */
 char *_strdup(char *str)
 {
-	int i;
-	int s;
 	char *g;
+	int i;
+	int k;
 
-	i = 0;
 	if (str == NULL)
-	{
-		return (NULL);
-	}
-	while (str[i])
+		return NULL;
+	i = 0;
+	while(str[i] != '\0' && str)
 	{
 		i++;
 	}
 	i++;
-	printf("%d\n", i);
 
 	g = (char *)malloc(sizeof(char) * i);
+	
 	if (g == NULL)
 	{
 		return (NULL);
 	}
 
-	for (s = 0; s < i; s++)
+	for (k = 0; k <= i; k++)
 	{
-		g[s] = str[s];
+		g[k] = str[k];
 	}
-	g[s] = '\0';
-
 	return (g);
 }
