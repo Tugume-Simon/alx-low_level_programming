@@ -62,12 +62,6 @@ int main(int argc, char *argv[])
 	int sum;
 
 	sum = 0;
-	if (argc == 1)
-	{
-		_putchar(0 + '0');
-		_putchar('\n');
-	}
-
 	for (i = 1; i < argc; i++)
 	{
 		l = 0;
