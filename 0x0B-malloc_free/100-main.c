@@ -7,11 +7,11 @@
  *
  * Return: Always 0.
  */
-int main(int ac, char *av[])
+int main(__attribute__((unused)) int ac, __attribute__((unused)) char *av[])
 {
 	char *s;
 
-	s = argstostr(ac, av);
+	s = argstostr(0, NULL);
 	if (s == NULL)
 	{
 		return (1);
