@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * argstostr - joins strings from provided
@@ -29,7 +30,7 @@ char *argstostr(int ac, char **av)
 		}
 	}
 
-	rstr = (char *)malloc(sizeof(char) * (c + 2 * (n - 1)));
+	rstr = (char *)malloc(sizeof(char) * (c + 2 * n));
 	if (rstr == NULL)
 		return (NULL);
 	c = 0;
@@ -42,12 +43,9 @@ char *argstostr(int ac, char **av)
 			c++;
 			k++;
 		}
-		rstr[c] = ' ';
-		c++;
 		rstr[c] = '\n';
 		c++;
 	}
-	rstr[c] = '\0';
 
 	return (rstr);
 }
