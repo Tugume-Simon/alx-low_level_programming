@@ -28,7 +28,7 @@ char *argstostr(int ac, char **av)
 		}
 	}
 
-	rstr = (char *)malloc(sizeof(char) * (c + ac - 1)); /* c + ac - 1 + 1 */
+	rstr = (char *)malloc(sizeof(char) * (c + ac + n)); /* c + ac - 1 + 1 */
 	if (rstr == NULL)
 		return (NULL);
 	c = 0;
