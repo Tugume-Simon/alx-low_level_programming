@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 	for (n = 1; n < ac; n++)
 	{
 		k = 0;
-		while (av[n][k])
+		while (av[n][k] != '\0')
 		{
 			c++;
 			k++;
