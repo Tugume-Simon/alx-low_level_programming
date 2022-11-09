@@ -42,9 +42,12 @@ char *argstostr(int ac, char **av)
 			c++;
 			k++;
 		}
+		rstr[c] = ' ';
+		c++;
 		rstr[c] = '\n';
 		c++;
 	}
+	rstr[c] = '\0';
 
 	return (rstr);
 }
