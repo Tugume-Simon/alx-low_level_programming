@@ -35,6 +35,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int c2;
 	unsigned int i;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+
 	c1 = str_count(s1);
 	c2 = str_count(s2);
 
@@ -52,7 +55,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		c[i] = s1[i];
 	}
 	
-	for (i = c1; i <= (n + c1); i++)
+	for (i = c1; i < (n + c1); i++)
 	{
 		c[i] = s2[i - c1];
 	}
