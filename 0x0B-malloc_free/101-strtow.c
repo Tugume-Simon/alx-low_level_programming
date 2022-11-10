@@ -26,6 +26,8 @@ int word_count(char *s)
 		{
 			wc++;
 		}
+		if (s[i] != ' ' && !s[i + 1])
+			wc++;
 		i++;
 	}
 
@@ -60,10 +62,10 @@ char **strtow(char *str)
 
 	while ((c = str[i]) && r < count)
 	{
-		if (c == ' ' && str[i - 1] && str[i - 1] != ' ')
+		if ((c == ' '|| !str[i + 1]) && str[i - 1] && str[i - 1] != ' ')
 		{
 			w[r] = j;
-			*(s + r) = (char *)malloc(sizeof(char) * j + 1);
+			*(s + r) = (char *)malloc(sizeof(char) * j);
 			r += 1;
 			j = 0;
 		}
@@ -88,6 +90,5 @@ char **strtow(char *str)
 		i++;
 	}
 	free(w);
-
 	return (s);
 }
