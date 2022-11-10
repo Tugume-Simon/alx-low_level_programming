@@ -54,7 +54,7 @@ char **strtow(char *str)
 
 	count = word_count(str);
 	w = (int *)malloc(sizeof(int) * count);
-	s = (char **)malloc(sizeof(char *) * count);
+	s = (char **)malloc(sizeof(char *) * count + 1);
 	if (s == NULL)
 		return (NULL);
 
@@ -63,7 +63,7 @@ char **strtow(char *str)
 		if (c == ' ' && str[i - 1] && str[i - 1] != ' ')
 		{
 			w[r] = j;
-			*(s + r) = (char *)malloc(sizeof(char) * j);
+			*(s + r) = (char *)malloc(sizeof(char) * j + 1);
 			r += 1;
 			j = 0;
 		}
