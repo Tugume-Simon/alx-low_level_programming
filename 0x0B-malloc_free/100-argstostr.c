@@ -30,7 +30,7 @@ char *argstostr(int ac, char **av)
 		}
 	}
 
-	rstr = (char *)malloc(sizeof(char) * (c + 2 * (n + 1)));
+	rstr = (char *)malloc(sizeof(char) * (c + (n - 1)));
 	if (rstr == NULL)
 		return (NULL);
 	c = 0;
@@ -43,18 +43,9 @@ char *argstostr(int ac, char **av)
 			c++;
 			k++;
 		}
-		rstr[c] = ' ';
-		c++;
 		rstr[c] = '\n';
 		c++;
 	}
-	rstr[c] = ' ';
-	c++;
-	rstr[c] = '\n';
-	c++;
-	rstr[c] = '\n';
-	c++;
-	rstr[c] = '\0';
 
 	return (rstr);
 }
