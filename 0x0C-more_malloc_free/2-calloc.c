@@ -11,15 +11,13 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *memory;
+	char *memory;
 	unsigned int i;
-	char *z;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
 	memory = malloc(size * nmemb);
-	z = (char *)memory;
 	if (memory == NULL)
 	{
 		free(memory);
@@ -29,7 +27,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	i = 0;
 	while (i < nmemb)
 	{
-		*(z + i) = 0;
+		*(memory + i) = 0;
 		i++;
 	}
 
