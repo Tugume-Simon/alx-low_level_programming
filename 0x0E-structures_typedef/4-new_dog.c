@@ -52,6 +52,8 @@ void copy_str(char *src, char *dest)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
+	char *nm;
+	char *own;
 
 	new = malloc(sizeof(dog_t));
 	if (new == NULL)
@@ -60,11 +62,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	new->name = malloc(sizeof(char) * get_length(name));
-	new->owner = malloc(sizeof(char) * get_length(owner));
+	nm = malloc(sizeof(char) * get_length(name));
+	own = malloc(sizeof(char) * get_length(owner));
 
-	copy_str(name, new->name);
-	copy_str(name, new->name);
+	copy_str(name, nm);
+	copy_str(name, own);
+	new->name = nm;
+	new->owner = own;
 	new->age = age;
 
 	return (new);
