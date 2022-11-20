@@ -3,6 +3,26 @@
 #include <stdio.h>
 
 /**
+ * get_length - counts characters in a string
+ * @s: pointer to string
+ *
+ * Return: length of string
+ */
+int get_length(char *s)
+{
+	int i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+/**
  * new_dog - creates a new dog type (struct)
  * @name: name of the dog
  * @age: dog's age
@@ -13,7 +33,6 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	int i;
 	char *nm;
 	char *own;
 
@@ -24,29 +43,25 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	nm = malloc(sizeof(*name));
-	own = malloc(sizeof(*owner));
-	if (nm == NULL || own == NULL)
+	nm = malloc(sizeof(char) * get_length(name));
+	own = malloc(sizeof(char) * get_length(owner));
+
+	if (nm == NULL)
 	{
+		free(nm);
 		return (NULL);
-		exit(EXIT_FAILURE);
 	}
-	i = 0;
-	while (name[i] != '\0')
+	if (own == NULL)
 	{
-		nm[i] = name[i];
-		i++;
+		free(own);
+		return (NULL);
 	}
-	i = 0;
-	while (owner[i] != '\0')
-	{
-		own[i] = owner[i];
-		i++;
-	}
+	nm = name;
+	own = owner;
 
 	new->name = nm;
+	new->owner = own;
 	new->age = age;
-	new->owner = owner;
 
 	return (new);
 }
