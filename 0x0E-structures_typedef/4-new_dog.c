@@ -8,6 +8,7 @@
  *
  * Return: number of characters in the string
  */
+/*
 int get_length(char *str)
 {
 	int i;
@@ -19,7 +20,7 @@ int get_length(char *str)
 	}
 	return (i);
 }
-
+*/
 /**
  * cp_str - makes a copy of a string
  * @s: pointer to the string
@@ -27,6 +28,7 @@ int get_length(char *str)
  *
  * Return: copy of string addressed by s
  */
+/*
 char *cp_str(char *s, int len)
 {
 	int i;
@@ -47,7 +49,7 @@ char *cp_str(char *s, int len)
 	}
 	return (str);
 }
-
+*/
 /**
  * new_dog - creates a new dog type (struct)
  * @name: name of the dog
@@ -59,8 +61,8 @@ char *cp_str(char *s, int len)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	int name_len = get_length(name);
-	int owner_len = get_length(owner);
+	char *cpname;
+	char *cpowner;
 
 	new = malloc(sizeof(dog_t));
 	if (new == NULL)
@@ -69,8 +71,23 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	new->name = cp_str(name, name_len);
-	new->owner = cp_str(owner, owner_len);
+	cpname = malloc(sizeof(*name));
+	if (cpname == NULL)
+	{
+		free(cpname);
+		return (NULL);
+	}
+	cpname = name;
+	cpowner = malloc(sizeof(*owner));
+	if (cpowner == NULL)
+	{
+		free(cpowner);
+		return (NULL);
+	}
+	cpowner = owner;
+
+	new->name = cpname;
+	new->owner = cpowner;
 	new->age = age;
 
 	return (new);
