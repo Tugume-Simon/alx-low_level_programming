@@ -1,5 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * new_dog - creates a new dog type (struct)
@@ -12,19 +13,19 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	char *nm;
-	char *own;
+	char *nm = malloc(sizeof(*name));
+	char *own = malloc(sizeof(*owner));
 
-	nm = malloc(sizeof(*name));
-	own = malloc(sizeof(*owner));
-
-	if (nm == NULL || own == NULL)
+	if (nm == NULL)
 	{
 		free(nm);
+		return (NULL);
+	}
+	if (own == NULL)
+	{
 		free(own);
 		return (NULL);
 	}
-
 	nm = name;
 	own = owner;
 	new = malloc(sizeof(dog_t));
