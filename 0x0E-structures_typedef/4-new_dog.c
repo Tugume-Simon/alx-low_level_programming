@@ -33,8 +33,6 @@ int get_length(char *s)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	char *nm;
-	char *own;
 
 	new = malloc(sizeof(dog_t));
 	if (new == NULL)
@@ -43,24 +41,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	nm = malloc(sizeof(char) * get_length(name));
-	own = malloc(sizeof(char) * get_length(owner));
+	new->name = malloc(sizeof(char) * get_length(name));
+	new->owner = malloc(sizeof(char) * get_length(owner));
 
-	if (nm == NULL)
+	if (new->name == NULL)
 	{
-		free(nm);
+		free(new->name);
 		return (NULL);
 	}
-	if (own == NULL)
+	if (new->owner == NULL)
 	{
-		free(own);
+		free(new->owner);
 		return (NULL);
 	}
-	nm = name;
-	own = owner;
 
-	new->name = nm;
-	new->owner = own;
+	new->name = name;
+	new->owner = owner;
 	new->age = age;
 
 	return (new);
