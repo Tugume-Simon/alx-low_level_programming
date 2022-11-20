@@ -23,6 +23,25 @@ int get_length(char *s)
 }
 
 /**
+ * copy_str - copies string from one memory address to another
+ * @src: memory address to copy fromm
+ * @dest: memory address to copy to
+ *
+ * Return: nothing
+ */
+void copy_str(char *src, char *dest)
+{
+	int i;
+
+	i = 0;
+	while(src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+}
+
+/**
  * new_dog - creates a new dog type (struct)
  * @name: name of the dog
  * @age: dog's age
@@ -44,19 +63,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new->name = malloc(sizeof(char) * get_length(name));
 	new->owner = malloc(sizeof(char) * get_length(owner));
 
-	if (new->name == NULL)
-	{
-		free(new->name);
-		return (NULL);
-	}
-	if (new->owner == NULL)
-	{
-		free(new->owner);
-		return (NULL);
-	}
-
-	new->name = name;
-	new->owner = owner;
+	copy_str(name, new->name);
+	copy_str(name, new->name);
 	new->age = age;
 
 	return (new);
