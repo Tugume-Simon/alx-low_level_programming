@@ -3,6 +3,26 @@
 #include <stdio.h>
 
 /**
+ * store_str - stores string into variable
+ * @s: address of string
+ * @n: length of string
+ *
+ * Return: string
+ */
+char store_str(char *s, unsigned int n)
+{
+	unsigned int i;
+	char str[] = "";
+
+	for (i = 0; i < n; i++)
+	{
+		str[i] = s[i];
+	}
+
+	return (str);
+}
+
+/**
  * new_dog - creates a new dog type (struct)
  * @name: name of the dog
  * @age: dog's age
@@ -13,21 +33,9 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	char *nm = malloc(sizeof(*name));
-	char *own = malloc(sizeof(*owner));
+	char nm[] = store_str(name, sizeof(*name));
+	char own[] = store_str(name, sizeof(*owner));
 
-	if (nm == NULL)
-	{
-		free(nm);
-		return (NULL);
-	}
-	if (own == NULL)
-	{
-		free(own);
-		return (NULL);
-	}
-	nm = name;
-	own = owner;
 	new = malloc(sizeof(dog_t));
 	if (new == NULL)
 	{
