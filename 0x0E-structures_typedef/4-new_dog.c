@@ -3,6 +3,52 @@
 #include <stdio.h>
 
 /**
+ * get_length - finds the length of a string
+ * @str: pointer to the string
+ *
+ * Return: number of characters in the string
+ */
+int get_length(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+/**
+ * cp_str - makes a copy of a string
+ * @s: pointer to the string
+ * @len: length of the string
+ *
+ * Return: copy of string addressed by s
+ */
+char *cp_str(char *s, int len)
+{
+	int i;
+	char *str;
+
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+	{
+		free(str);
+		return (NULL);
+	}
+
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	return (str);
+}
+
+/**
  * new_dog - creates a new dog type (struct)
  * @name: name of the dog
  * @age: dog's age
@@ -13,22 +59,11 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	char *nm = malloc(sizeof(*name));
-	char *own = malloc(sizeof(*owner));
+	int name_len = get_length(name);
+	int owner_len = get_length(owner);
+	char *namecpy = cp_str(name, name_len);
+	char *ownercpy = cp_str(owner, owner_len);
 
-	if (nm == NULL)
-	{
-		free(nm);
-		nm = NULL;
-	}
-	if (own == NULL)
-	{
-		free(own);
-		own = NULL;
-	}
-
-	nm = name;
-	own = owner;
 	new = malloc(sizeof(dog_t));
 	if (new == NULL)
 	{
@@ -36,9 +71,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	new->name = nm;
+	new->name = namecpy;
 	new->age = age;
-	new->owner = own;
+	new->owner = ownercpy;
 
 	return (new);
 }
