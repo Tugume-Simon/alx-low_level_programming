@@ -13,8 +13,8 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	char nm = malloc(sizeof(*name));
-	char own = malloc(sizeof(*owner));
+	char *nm = malloc(sizeof(*name));
+	char *own = malloc(sizeof(*owner));
 
 	if (nm == NULL)
 	{
