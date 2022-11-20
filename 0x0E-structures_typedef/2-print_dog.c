@@ -12,10 +12,9 @@ void print_dog(struct dog *d)
 {
 	if (d == NULL)
 	{
-		printf("%c", '\0');
 		exit(EXIT_FAILURE);
 	}
-	
+
 	if (d->name == NULL)
 	{
 		d->name = "(nil)";
