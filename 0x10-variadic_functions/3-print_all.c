@@ -18,7 +18,10 @@ void print_all(const char * const format, ...)
 	va_list ap;
 
 	if (format == NULL)
+	{
+		printf("\n");
 		exit(1);
+	}
 	n = get_formats(format);
 	va_start(ap, format);
 	while ((f = format[j]))
@@ -47,9 +50,10 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		(j != (n - 1)) ? printf(", ") : printf("\n");
+		(j != (n - 1)) ? printf(", ") : printf("%s", "");
 		j++;
 	}
+	printf("\n");
 	va_end(ap);
 }
 
