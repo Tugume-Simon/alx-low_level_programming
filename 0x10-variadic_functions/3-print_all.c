@@ -12,13 +12,12 @@
 void print_all(const char * const format, ...)
 {
 	char *s, f, l;
-	int i, j;
+	int i, j = 0;
 	double fl;
 	va_list ap;
 
 	if (format == NULL)
 		exit(EXIT_FAILURE);
-	j = 0;
 	va_start(ap, format);
 	while ((f = format[j]))
 	{
@@ -51,4 +50,5 @@ void print_all(const char * const format, ...)
 		j++;
 	}
 	printf("\n");
+	va_end(ap);
 }
