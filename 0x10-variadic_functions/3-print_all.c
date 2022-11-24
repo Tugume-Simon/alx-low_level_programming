@@ -46,9 +46,9 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		(format[j + 1]) ? printf(", ") : printf("%s", "");
+		(format[j + 1] == 'c' || format[j + 1] == 'i' || format[j + 1] == 's'
+		 || format[j + 1] == 'f') ? printf(", ") : printf("%s", "");
 		j++;
 	}
 	printf("\n");
-	va_end(ap);
 }
