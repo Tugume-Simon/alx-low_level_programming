@@ -18,7 +18,7 @@ void print_all(const char * const format, ...)
 	va_list ap;
 
 	if (format == NULL)
-		exit(1);
+		exit(EXIT_FAILURE);
 	j = 0;
 	va_start(ap, format);
 	while ((f = format[j]))
@@ -47,11 +47,8 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		if (format[j + 1])
-			printf(", ");
+		(format[j + 1]) ? printf(", ") : printf("\n");
 		j++;
 	}
-	printf("\n");
-
 	va_end(ap);
 }
