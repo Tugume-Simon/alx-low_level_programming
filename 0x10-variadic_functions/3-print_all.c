@@ -46,7 +46,7 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		(format[j + 1]) ? printf(", ") : printf("");
+		(format[j + 1]) ? printf(", ") : printf("%s", "");
 		j++;
 	}
 	printf("\n");
