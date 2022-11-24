@@ -11,8 +11,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	char f, l;
-	char *s;
+	char *s, f, l;
 	int i, j;
 	double fl;
 	va_list ap;
@@ -47,8 +46,9 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		(format[j + 1]) ? printf(", ") : printf("\n");
+		(format[j + 1]) ? printf(", ") : printf("");
 		j++;
 	}
+	printf("\n");
 	va_end(ap);
 }
