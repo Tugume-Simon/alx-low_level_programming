@@ -13,12 +13,13 @@ int get_formats(const char * const f);
 void print_all(const char * const format, ...)
 {
 	char *s, f, l;
-	int i, j = 0, n = get_formats(format);
+	int i, j = 0, n;
 	double fl;
 	va_list ap;
 
 	if (format == NULL)
-		exit(EXIT_FAILURE);
+		exit(1);
+	n = get_formats(format);
 	va_start(ap, format);
 	while ((f = format[j]))
 	{
