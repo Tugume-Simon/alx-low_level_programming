@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+int get_formats(const char * const f);
 /**
  * print_all - prints anything
  * @format: list of types supplied
@@ -12,7 +13,7 @@
 void print_all(const char * const format, ...)
 {
 	char *s, f, l;
-	int i, j = 0;
+	int i, j = 0, n = get_formats(format);
 	double fl;
 	va_list ap;
 
@@ -45,10 +46,28 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		(format[j + 1] == 'c' || format[j + 1] == 'i' || format[j + 1] == 's'
-		 || format[j + 1] == 'f') ? printf(", ") : printf("%s", "");
+		(j != (n - 1)) ? printf(", ") : printf("%s", "");
 		j++;
 	}
 	printf("\n");
 	va_end(ap);
+}
+
+/**
+ * get_formats - counts format specifiers in format string
+ * provided
+ * @f: address of the format string
+ *
+ * Return: number of characters in the format string
+ */
+int get_formats(const char * const f)
+{
+	int i;
+
+	i = 0;
+	while (f[i])
+	{
+		i++;
+	}
+	return (i);
 }
