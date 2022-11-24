@@ -47,10 +47,9 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 		}
-		(j != (n - 1)) ? printf(", ") : printf("%s", "");
+		(j != (n - 1)) ? printf(", ") : printf("\n");
 		j++;
 	}
-	printf("\n");
 	va_end(ap);
 }
 
