@@ -1,6 +1,6 @@
-#include <stddef.h>
 #ifndef _LISTS_H
-#define _LIST_H
+#define _LISTS_H
+#include <stddef.h>
 
 int _putchar(char c);
 
