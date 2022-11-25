@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "3-calc.h"
+#include <stdio.h>
 
 /**
  * get_op_func - calls function on two integral arguments
@@ -25,7 +26,7 @@ int (*get_op_func(char *s))(int, int)
 	{
 		if (ops[i].op == NULL)
 		{
-			return (NULL);
+			break;
 		}
 		if (*s == ops[i].op[0])
 		{
