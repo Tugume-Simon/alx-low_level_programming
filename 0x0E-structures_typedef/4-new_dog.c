@@ -15,7 +15,6 @@ int get_len(char *str);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	char *nm, *own;
 	int i, nl, ol;
 	
 	new = malloc(sizeof(dog_t));
@@ -25,24 +24,23 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	nl = get_len(name);
-	ol = get_len(owner);
-	nm = malloc(sizeof(char) * nl + 1);
-	own = malloc(sizeof(char) * ol + 1);
-
-	for (i = 0; i < nl; i++)
-	{
-		nm[i] = name[i];
-	}
-	for (i = 0; i < ol; i++)
-	{
-		own[i] = owner[i];
-	}
-
 	new->name = name;
 	new->age = age;
 	new->owner = owner;
 
+	nl = get_len(name);
+	ol = get_len(owner);
+	name = malloc(sizeof(char) * nl + 1);
+	owner = malloc(sizeof(char) * ol + 1);
+
+	for (i = 0; i < nl; i++)
+	{
+		name[i] = (new->name)[i];
+	}
+	for (i = 0; i < ol; i++)
+	{
+		owner[i] = (new->owner)[i];
+	}
 	return (new);
 }
 
