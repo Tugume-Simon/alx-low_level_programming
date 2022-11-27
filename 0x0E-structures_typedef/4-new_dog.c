@@ -14,27 +14,19 @@ int get_length(char *str);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	int n = get_length(name);
-	int o = get_length(owner);
-	int i;
-	
+	int n, o, i;
+
 	new = malloc(sizeof(dog_t));
-	if (new == NULL)
+	if (new == NULL || name == NULL || owner == NULL)
 	{
 		free(new);
 		return (NULL);
 	}
 
+	n = get_length(name);
+	o = get_length(owner);
 	new->name = malloc(sizeof(char) * n);
-	if (new->name == NULL)
-	{
-		free(new->name);
-	}
 	new->owner = malloc(sizeof(char) * o);
-	if (new->owner == NULL)
-	{
-		free(new->owner);
-	}
 	for (i = 0; i < n; i++)
 	{
 		new->name[i] = name[i];
