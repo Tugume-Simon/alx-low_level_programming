@@ -60,5 +60,5 @@ int get_length(char *str)
 	{
 		i++;
 	}
-	return (++i);
+	return (i);
 }
