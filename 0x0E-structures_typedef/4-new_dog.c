@@ -25,10 +25,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new == NULL || !new->name || !new->owner || new->owner == NULL
 			|| new->name == NULL)
 	{
-		free(new->name);
-		free(new->owner);
-		free(new);
-		return (NULL);
+		if (!new->name || new->name == NULL)
+			free(new->name);
+		if (!new->owner || new->owner == NULL)
+			free(new->owner);
+		if (new == NULL)
+		{
+			free(new);
+			return (NULL);
+		}
 	}
 	for (i = 0; i < n; i++)
 	{
