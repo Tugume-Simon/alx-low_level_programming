@@ -3,7 +3,7 @@
 /**
  * print_binary - prints the binary representation of
  * a number
- * n: number in decimal
+ * @n: number in decimal
  *
  * Return: nothing
  */
