@@ -11,24 +11,25 @@
 int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int *arr;
-	unsigned int i;
+	int i, l = index;
 
 	if (index >= (sizeof(long) * 8))
 		return (-1);
 
-	arr = malloc(sizeof(long) * index);
+	arr = malloc(sizeof(long) * l);
 	i = 0;
-	do {
+	while (i <= (l - 1))
+	{
 		arr[i] = *n & 1;
 		*n >>= 1;
 		i++;
-	} while (i <= (index - 1));
+	}
 
 	if ((*n) & 1)
 	{
 		*n -= 1;
 	}
-	
+
 	while (i)
 	{
 		*n <<= 1;
