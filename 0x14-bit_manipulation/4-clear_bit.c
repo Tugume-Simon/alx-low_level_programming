@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * clear_bit - sets the value of bit to 0 at given index
@@ -9,24 +10,32 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int y;
+	unsigned long int *arr;
+	unsigned int i;
 
 	if (index >= (sizeof(long) * 8))
 		return (-1);
 
-	y = *n;
-	y >>= index;
+	arr = malloc(sizeof(long) * index);
+	i = 0;
+	do {
+		arr[i] = *n & 1;
+		*n >>= 1;
+		i++;
+	} while (i <= (index - 1));
 
-	if (y & 1)
+	if ((*n) & 1)
 	{
-		y = y - 1;
+		*n -= 1;
 	}
+	
+	while (i)
+	{
+		*n <<= 1;
+		*n = *n + arr[i - 1];
+		i--;
+	}
+	free(arr);
 
-	while (index)
-	{
-		y <<= 1;
-		index--;
-	}
-	*n = *n | y;
 	return (1);
 }
