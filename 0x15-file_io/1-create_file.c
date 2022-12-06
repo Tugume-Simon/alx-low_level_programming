@@ -21,15 +21,22 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	i = 0;
-	while (*(text_content + i))
+	if (text_content != NULL)
 	{
-		i++;
-	}
+		while (*(text_content + i))
+		{
+			i++;
+		}
 
-	file_write = write(fd, text_content, i);
-	if (file_write == -1)
+		file_write = write(fd, text_content, i);
+		if (file_write == -1)
+		{
+			return (-1);
+		}
+	}
+	else
 	{
-		return (-1);
+		return ((!(fd == -1)) ? 1 : -1);
 	}
 
 	return (1);
