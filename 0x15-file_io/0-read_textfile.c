@@ -31,9 +31,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	bytes_read = read(fd, buff, letters);
 	buff[letters + 1] = '\0';
 
-	written = write(1, buff, letters);
-	if (written < (ssize_t)letters)
+	written = write(1, buff, bytes_read);
+	if (!written)
 		return (0);
 	close(fd);
-	return (bytes_read);
+	free(buff);
+	return (written);
 }
