@@ -14,7 +14,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char *buff;
-	ssize_t bytes_read;
+	size_t bytes_read;
+	ssize_t written;
 
 	if (filename == NULL || letters == 0)
 	{
@@ -30,11 +31,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	bytes_read = read(fd, buff, letters);
 	buff[letters + 1] = '\0';
 
-	while (*buff)
-	{
-		_putchar(*buff);
-		buff++;
-	}
+	written = write(1, buff, letters);
+	if (written < (ssize_t)letters)
+		return (0);
 	close(fd);
 	return (bytes_read);
 }
