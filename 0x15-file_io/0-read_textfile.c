@@ -27,11 +27,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	buff = malloc(sizeof(char) * letters);
+	buff = malloc(sizeof(char) * letters + 1);
 	if (!buff)
 		return (0);
 
 	bytes_read = read(fd, buff, letters);
+	buff[letters + 1] = '\0';
 	written = write(1, buff, bytes_read);
 
 	close(fd);
