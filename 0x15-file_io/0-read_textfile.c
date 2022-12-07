@@ -32,14 +32,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (!buff)
 			return (0);
 		file_read = read(fildes, buff, letters);
-		if (file_read < (ssize_t)letters)
-			file_write = write(2, buff, file_read);
 		file_write = write(1, buff, file_read);
 
-		if (file_write == -1 || file_write != file_read)
+		if (file_write == -1)
 		{
 			return (0);
 		}
+		if (file_write != file_read)
+			file_write = write(2, buff, file_read);
 	}
 	else
 		return (0);
