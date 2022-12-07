@@ -14,6 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fildes;
 	char *buff;
+	ssize_t file_read;
 	ssize_t file_write;
 
 	if (filename == NULL)
@@ -28,11 +29,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (letters > 0)
 	{
 		buff = malloc(sizeof(char) * letters);
-		read(fildes, buff, letters);
-		file_write = write(1, buff, letters);
+		file_read = read(fildes, buff, letters);
+		file_write = write(1, buff, file_read);
 
 		if (file_write == -1)
 		{
+			write(2, buff, file_read);
 			return (0);
 		}
 	}
