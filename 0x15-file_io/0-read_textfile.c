@@ -28,11 +28,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	if (letters > 0)
 	{
-		buff = malloc(sizeof(char) * letters);
+		buff = malloc(sizeof(char) * letters + 1);
 		if (!buff)
 			return (0);
 		file_read = read(fildes, buff, letters);
-		lseek(
+		buff[file_read + 1] = '\0';
 		file_write = write(1, buff, file_read);
 
 		if (file_write == -1)
@@ -44,6 +44,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	else
 		return (0);
 
+	free(buff);
 	close(fildes);
 	return (file_write);
 }
