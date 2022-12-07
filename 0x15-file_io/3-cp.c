@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
 			dprintf(2, "Can't write to %s\n", argv[2]);
 			exit(99);
 		}
-		lseek(fdes1, file_read, SEEK_CUR);
 	}
 
 	if (close(fdes2) == -1)
