@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	fdes1 = open(argv[1], O_RDONLY);
 	if (fdes1 == -1)
 	{
+		close(fdes1);
 		dprintf(2, "Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
@@ -34,6 +35,7 @@ int main(int argc, char *argv[])
 	fdes2 = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
 	if (fdes2 == -1)
 	{
+		close(fdes2);
 		dprintf(2, "Can't write to %s\n", argv[2]);
 		exit(99);
 	}
@@ -42,6 +44,8 @@ int main(int argc, char *argv[])
 	{
 		if (!write(fdes2, buff, file_read))
 		{
+			close(fdes1);
+			close(fdes2);
 			dprintf(2, "Can't write to %s\n", argv[2]);
 			exit(99);
 		}
