@@ -12,37 +12,40 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fildes;
+	int fd;
 	char *buff;
-	ssize_t file_read;
-	ssize_t file_write;
+	ssize_t fr;
+	ssize_t fw;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
-	fildes = open(filename, O_RDONLY);
-	if (fildes == -1)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 	{
+		close(fd);
 		return (0);
 	}
-	if (letters > 0)
-	{
-		buff = malloc(sizeof(char) * letters);
-		if (!buff)
-			return (0);
-		file_read = read(fildes, buff, letters);
-		file_write = write(1, buff, file_read);
 
-		if (file_write == -1 || file_write != file_read)
-		{
-			return (0);
-		}
-	}
-	else
+	buff = malloc(sizeof(char) * letters);
+	if (!buff)
+	{
+		free(buff);
+		close(fd);
 		return (0);
+	}
+	fr = read(fd, buff, letters);
+	fw = write(STDOUT_FILENO, buff, fr);
+
+	if (fw == -1)
+	{
+		free(buff);
+		close(fd);
+		return (0);
+	}
 
 	free(buff);
-	close(fildes);
-	return (file_write);
+	close(fd);
+	return (fw);
 }
