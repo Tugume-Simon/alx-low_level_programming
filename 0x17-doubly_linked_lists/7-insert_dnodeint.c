@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -46,9 +45,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			}
 			i++;
 		}
-		printf("%d\n", curr->n);
 		new->prev = curr;
 		new->next = curr->next;
+		if (curr->next != NULL)
+			curr->next->prev = new;
 		curr->next = new;
 	}
 	return (new);
