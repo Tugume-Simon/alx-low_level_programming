@@ -21,7 +21,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
 
-	printf("%d\n", is_empty(key));
 	if (is_empty(key) == 1)
 		return (0);
 
