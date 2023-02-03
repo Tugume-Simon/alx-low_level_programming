@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 int is_empty(const char *str);
 char *_strcpy(char *dest, char *src);
@@ -21,11 +21,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
 
-	/*
-	if (is_empty(key))
+	printf("%d\n", is_empty(key));
+	if (is_empty(key) == 1)
 		return (0);
-	*/
-	
+
 	index = key_index((unsigned char *)key, ht->size);
 	node = malloc(sizeof(hash_node_t));
 	node->key = malloc(sizeof(key));
@@ -63,7 +62,7 @@ int is_empty(const char *str)
 	int i;
 
 	i = 0;
-	while (*str++)
+	while (str[i] != '\0')
 	{
 		i++;
 	}
