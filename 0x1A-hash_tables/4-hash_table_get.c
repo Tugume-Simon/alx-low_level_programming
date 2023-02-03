@@ -27,6 +27,12 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		if (strcmp(((ht->array[i])->key), key) == 0)
 		{
 			val = malloc(sizeof(((ht->array)[i])->value));
+
+			if (val == NULL)
+			{
+				free(val);
+				break;
+			}
 			val = ((ht->array)[i])->value;
 		}
 	}
