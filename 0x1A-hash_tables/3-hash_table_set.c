@@ -26,13 +26,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((unsigned char *)key, ht->size);
 	node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+		return (NULL);
 	node->key = malloc(sizeof(key));
+	if (node->key == NULL)
+		return (NULL);
 	node->value = malloc(sizeof(value));
-
-	if (node == NULL || node->key == NULL || node->value == NULL)
-	{
+	if (node->value == NULL)
 		return (0);
-	}
 
 	_strcpy(node->key, (char *)key);
 	_strcpy(node->value, (char *)value);
