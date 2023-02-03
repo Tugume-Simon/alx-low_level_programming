@@ -15,7 +15,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int i;
 	char *val;
 
-	if (ht == NULL)
+	if (ht == NULL || key == NULL)
 		return (NULL);
 
 	val = NULL;
@@ -30,7 +30,6 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 			if (val == NULL)
 			{
-				free(val);
 				break;
 			}
 			val = ((ht->array)[i])->value;
