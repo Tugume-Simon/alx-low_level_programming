@@ -14,6 +14,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int i;
 	char *val;
+	hash_node_t *node;
 
 	if (ht == NULL || key == NULL || strlen(key) == 0)
 		return (NULL);
@@ -21,19 +22,23 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	val = NULL;
 	for (i = 0; i < ht->size; i++)
 	{
-		if ((ht->array)[i] == NULL)
-			continue;
+		node = (ht->array)[i];
 
-		if (strcmp(((ht->array[i])->key), key) == 0)
+		while (node != NULL)
 		{
-			val = malloc(sizeof(((ht->array)[i])->value));
-
-			if (val == NULL)
+			if (strcmp(node->key, key) == 0)
 			{
-				break;
+				val = malloc(sizeof(node->value));
+
+				if (val == NULL)
+				{
+					break;
+				}
+				val = node->value;
 			}
-			val = ((ht->array)[i])->value;
+			node = node->next;
 		}
+
 	}
 	return (val);
 }
